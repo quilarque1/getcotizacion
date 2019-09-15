@@ -6,13 +6,3 @@ steps:
     image: node:latest
     commands: 
       - npm install
-
-  - name: publish
-    image: plugins/docker
-    settings:
-      registry: https://github.com/quilarque1
-      repo: https://github.com/quilarque1/getcotizacion
-      username:
-        from_secret: quilarque1
-      password:
-        from_secret: d9RlzVH15m
