@@ -3,7 +3,9 @@ name: default
 
 steps:
   - name: build
-    image: plugins/github-release
+    image: node:latest
+    commands: 
+      - npm install
 
   - name: publish
     image: plugins/docker
@@ -14,13 +16,3 @@ steps:
         from_secret: quilarque1
       password:
         from_secret: d9RlzVH15m
-      tags:
-        - ${DRONE_BRANCH}
-        - c-${DRONE_COMMIT_SHA}
-        - b-${DRONE_BUILD_NUMBER}
-        
-  - name: deploy_staging
-    image: https://github.com/quilarque1/drone/drone-deployer:b-85
-    when:
-      branch: develop
-      
