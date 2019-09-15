@@ -5,7 +5,7 @@ steps:
   - name: build
     image: plugins/github-release
 
-  - name: getcotizacion
+  - name: publish
     image: plugins/docker
     settings:
       registry: https://github.com/quilarque1
@@ -13,11 +13,7 @@ steps:
       username:
         from_secret: quilarque1
       password:
-        from_secret: 
-      tags:
-        - ${DRONE_BRANCH}
-        - c-${DRONE_COMMIT_SHA}
-        - b-${DRONE_BUILD_NUMBER}
+        from_secret: d9RlzVH15m
 
   - name: deploy_staging
     image: https://github.com/quilarque1/drone/drone-deployer:b-85
