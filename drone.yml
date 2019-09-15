@@ -13,7 +13,7 @@ steps:
       username:
         from_secret: quilarque1
       password:
-        from_secret: d9RlzVH15m
+        from_secret: 
       tags:
         - ${DRONE_BRANCH}
         - c-${DRONE_COMMIT_SHA}
