@@ -1,4 +1,4 @@
-FROM node:latest
+FROM https://hub.docker.com/_/node/
 
 WORKDIR /usr/src/app
 
