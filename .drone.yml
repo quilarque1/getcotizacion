@@ -1,13 +1,28 @@
 kind: pipeline
 name: default
 
+workspace:
+  base: /go
+  path: src/github.com/quilarque1/getcotizacion
+
 steps:
-  - name: publish
-    image: plugins/docker
-    settings:
-      registry: https://github.com/quilarque1
-      repo: src/github.com/quilarque1/getcotizacion
-      username:
-        from_secret: quilarque1
-      password:
-        from_secret: d9RlzVH15m
+  - name: test
+    image: golang
+    commands:
+      - go get
+      - go test
+
+  - name: build
+    image: golang
+    commands:
+      - go get
+      - go build -o output
+      - chmod +x output
+
+  - name: run
+    image: golang
+    commands:
+      - go get
+      - go build -o output
+      - chmod +x output
+      - ./output
