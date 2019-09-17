@@ -1,28 +1,7 @@
-kind: pipeline
-name: default
-
-workspace:
-  base: /go
-  path: src/github.com/quilarque1/getcotizacion
-
-steps:
-  - name: test
-    image: golang
-    commands:
-      - go get
-      - go test
-
-  - name: build
-    image: golang
-    commands:
-      - go get
-      - go build -o output
-      - chmod +x output
-
-  - name: run
-    image: golang
-    commands:
-      - go get
-      - go build -o output
-      - chmod +x output
-      - ./output
+pipeline:
+  build:
+    image: node:latest
+    commands: npm install
+  test:
+    image: node:latest
+    commands: npm run test
