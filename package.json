@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "test": "nodemon --exec mocha -R min --timeout 30000"
   },
   "repository": {
     "type": "git",
@@ -19,11 +20,15 @@
   "homepage": "https://github.com/quilarque1/getcotizacion#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "mocha": "^6.2.0",
-    "morgan": "^1.9.1",
-    "supertest": "^4.0.2"
+    "morgan": "^1.9.1"
   },
   "devDependencies": {
-    "nodemon": "^1.19.1"
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^6.2.0",
+    "node-fetch": "^2.6.0",
+    "nodemon": "^1.19.1",
+    "should": "^13.2.3",
+    "supertest": "^4.0.2"
   }
 }
