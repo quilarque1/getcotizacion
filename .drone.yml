@@ -6,7 +6,7 @@ steps:
     image: plugins/docker
     settings:
       registry: https://github.com/quilarque1
-      repo: https://github.com/quilarque1/getcotizacion
+      repo: src/github.com/quilarque1/getcotizacion
       username:
         from_secret: quilarque1
       password:
