@@ -1,7 +1,24 @@
-pipeline:
-  build:
+kind: pipeline
+name: default
+
+steps:
+  - name: build
     image: node:latest
     commands: npm install
   test:
     image: node:latest
     commands: npm run test
+
+  - name: publish
+    image: plugins/docker
+    settings:
+      registry: docker.pkg.github.com
+      repo: docker.pkg.github.com/quilarque1/getcotizacion
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+      tags:
+        - ${DRONE_BRANCH}
+        - c-${DRONE_COMMIT_SHA}
+        - b-${DRONE_BUILD_NUMBER}
