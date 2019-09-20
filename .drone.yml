@@ -4,7 +4,9 @@ name: default
 steps:
   - name: build
     image: node:latest
-    commands: npm install
+    commands: 
+      - npm install
+      - npm test
 
   - name: publish
     image: plugins/docker
