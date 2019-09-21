@@ -1,4 +1,4 @@
-const chai = require("chai");
+/* const chai = require("chai");
 const chaihttp = require("chai-http");
 const app = require("../src/routes/index");
 const expect = require('chai').expect;
@@ -10,7 +10,13 @@ var should = require("should");
 
 chai.use(chaihttp);
 chai.should();
-const server = supertest.agent('http://localhost:3000');
+const server = supertest.agent('http://localhost:3000'); */
+
+const server = require("../src/routes/index");
+const chai = require("chai");
+const chaiHttp = require('chai-http');
+const expect = chai.expect;
+chai.use(chaiHttp);
 
 /* describe('API REST', function () {
     it('GET /users debe devolver todos los usuarios', function (donde) {
@@ -57,7 +63,7 @@ describe('/GET book', () => {
 });
  */
 
-describe('API REST', function () { 
+/* describe('API REST', function () { 
     it('GET /cotizacion', async () => {
 
         const response = await fetch('http://localhost:3000/cotizacion');
@@ -66,5 +72,13 @@ describe('API REST', function () {
         const cotiz = await response.json();
         //expect(cotiz.body).equal({ "title": "Hello World"});
        
+    });
+}); */
+
+describe('Checking whether the response return status 200', function () {
+    it('Status OK', async function (done) {
+        const { res, err } = await chai.request(server).get('/cotizacion');
+        expect(res.status).to.be.equal(200);
+        //expect(res.body.message).to.equal('hello world');
     });
 });
