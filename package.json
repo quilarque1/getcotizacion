@@ -28,6 +28,7 @@
     "chai-http": "^4.3.0",
     "mocha": "^6.2.0",
     "node-fetch": "^2.6.0",
+    "nodemon": "^1.19.2",
     "should": "^13.2.3",
     "supertest": "^4.0.2"
   }
