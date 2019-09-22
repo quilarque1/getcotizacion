@@ -1,22 +1,23 @@
-/* const chai = require("chai");
-const chaihttp = require("chai-http");
-const app = require("../src/routes/index");
+// const chai = require("chai");
+// const chaihttp = require("chai-http");
+// const app = require("../src/routes/index");
 const expect = require('chai').expect;
-const fetch = require('node-fetch');
+//const fetch = require('node-fetch');
+const request = require('request');
 
 var supertest = require("supertest");
-var should = require("should");
+// var should = require("should");
 
 
-chai.use(chaihttp);
-chai.should();
-const server = supertest.agent('http://localhost:3000'); */
+// chai.use(chaihttp);
+// chai.should();
+const server = supertest.agent('http://localhost:3000');
 
-const server = require("../src/routes/index");
+/* const server = require("../src/routes/index");
 const chai = require("chai");
 const chaiHttp = require('chai-http');
 const expect = chai.expect;
-chai.use(chaiHttp);
+chai.use(chaiHttp); */
 
 /* describe('API REST', function () {
     it('GET /users debe devolver todos los usuarios', function (donde) {
@@ -75,10 +76,23 @@ describe('/GET book', () => {
     });
 }); */
 
-describe('Checking whether the response return status 200', function () {
-    it('Status OK', async function (done) {
+/* describe('Checking whether the response return status 200', function () {
+    it('Status OK', async () => {
         const { res, err } = await chai.request(server).get('/cotizacion');
         expect(res.status).to.be.equal(200);
         //expect(res.body.message).to.equal('hello world');
+    });
+}); */
+
+describe('get all countries: ', () => {
+    it('should get all countries', (done) => {
+        request.get({ url: server + '/cotizacion' },
+        function(error, response, body) {
+            // var bodyObj = JSON.parse(body);
+            // expect(bodyObj.title).to.equal('Hello World');
+            // expect(response.statusCode).to.equal(200);
+            // console.log(body.title);            
+            done();
+        });
     });
 });
