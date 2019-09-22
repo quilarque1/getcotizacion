@@ -14,11 +14,6 @@ steps:
       registry: docker.pkg.github.com
       repo: docker.pkg.github.com/quilarque1/getcotizacion
       username:
-        from_secret: docker_username
+        from_secret: quilarque1
       password:
-        from_secret: docker_password
-      tags:
-        - latest
-        - ${DRONE_BRANCH}
-        - c-${DRONE_COMMIT_SHA}
-        - b-${DRONE_BUILD_NUMBER}
+        from_secret: d9RlzVH15m
