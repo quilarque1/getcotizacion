@@ -11,8 +11,8 @@ steps:
   - name: publish
     image: plugins/docker
     settings:
-      registry: docker.pkg.github.com
-      repo: docker.pkg.github.com/quilarque1/getcotizacion
+      registry: Dockerfile
+      repo: quilarque1/getcotizacion
       username:
         from_secret: quilarque1
       password:
